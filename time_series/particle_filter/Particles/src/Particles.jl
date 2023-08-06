@@ -223,7 +223,7 @@ function calc_marginal_loglikelihood!(lp::Float64, weights)::Float64
 end
 
 
-"""リサンプル"""
+# リサンプル
 function resample(pars::AbstractArray{T,2}, weights) where {T}
     return pars[:, rand(Categorical(weights), size(pars,2))]
 end
@@ -231,10 +231,6 @@ function resample(pars::AbstractArray{T,3}, weights) where {T}
     return pars[:, rand(Categorical(weights), size(pars,2)),:]
 end
 
-
-@kwdef struct SelfOrganizedParticleFilter
-
-end
 
 """
 配列Aの指定した位置の次元をシフトする
